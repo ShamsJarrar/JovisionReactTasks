@@ -1,22 +1,15 @@
 import React, { useState } from 'react';
-import { View, Text, TextInput, StyleSheet } from 'react-native';
+import { View, Text, StyleSheet } from 'react-native';
 import MyFunctionComponent_Task22 from '../Components/MyFunctionComponent_Task22';
 
 function Task22() {
-    const [pageContent, setContent] = useState("Input Page Content Here!");
+    const [pageContent, setContent] = useState("");
 
     return (
         <View style={styles.container}>
-            <TextInput 
-            style={styles.input}
-            multiline
-            editable
-            numberOfLines={5}
-            onChangeText={setContent}
-            value={pageContent}
-            />
-
-            <MyFunctionComponent_Task22 content={pageContent} />
+            <MyFunctionComponent_Task22 changeContent={setContent} />
+            <Text style={styles.header}>My Page</Text>
+            <Text style={styles.pageText}>{pageContent}</Text>
         </View>
     );
 }
@@ -24,21 +17,21 @@ function Task22() {
 const styles = StyleSheet.create({
     container: {
         flex: 1,
-        justifyContent: "center",
+        justifyContent: "flex-start",
         alignItems: "center",
     },
-    Text: {
+    pageText: {
         textAlign: "center",
         fontSize: 15,
         color: "#000000",
+        marginTop: 20,
     },
-    input: {
-        borderWidth: 1,
-        marginBottom: 30,
-        marginTop: 10,
-        padding: 5,
-        width: 250,
-    }
+    header: {
+        textAlign: "center",
+        fontSize: 25,
+        color: "#000000",
+        fontWeight: "bold",
+    },
 });
 
 export default Task22;
