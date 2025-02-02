@@ -1,12 +1,12 @@
 import React, { Component } from 'react';
-import { StyleSheet, View, TextInput } from 'react-native';
+import { StyleSheet, View, Text } from 'react-native';
 import MyClass_Task23 from '../Components/MyClassComponent_Task23';
 
 class Task23 extends Component {
-    constructor(props) {
-        super(props);
+    constructor() {
+        super();
         this.state = {
-            pageContent: "Input Page Content Here!"
+            pageContent: ""
         }
     }
 
@@ -17,16 +17,9 @@ class Task23 extends Component {
     render() {
         return (
             <View style={styles.container}>
-                <TextInput 
-                style={styles.input}
-                multiline
-                editable
-                numberOfLines={5}
-                onChangeText={this.setPageContent}
-                value={this.state.pageContent}
-                />
-    
-                <MyClass_Task23 content={this.state.pageContent} />
+                <MyClass_Task23 changeContent={this.setPageContent} />
+                <Text style={styles.header}>My Page</Text>
+                <Text style={styles.pageText}>{this.state.pageContent}</Text>
             </View>
         );
     }
@@ -35,21 +28,21 @@ class Task23 extends Component {
 const styles = StyleSheet.create({
     container: {
         flex: 1,
-        justifyContent: "center",
+        justifyContent: "flex-start",
         alignItems: "center",
     },
-    Text: {
+    pageText: {
         textAlign: "center",
         fontSize: 15,
         color: "#000000",
+        marginTop: 20,
     },
-    input: {
-        borderWidth: 1,
-        marginBottom: 30,
-        marginTop: 10,
-        padding: 5,
-        width: 250,
-    }
+    header: {
+        textAlign: "center",
+        fontSize: 25,
+        color: "#000000",
+        fontWeight: "bold",
+    },
 });
 
 export default Task23

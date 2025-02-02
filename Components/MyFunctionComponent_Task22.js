@@ -5,6 +5,7 @@ function MyFunctionComponent_Task22(props) {
     return (
         <View style={styles.container}>
             <Text style={styles.header}>Edit My Function Page</Text>
+
             <TextInput 
             style={styles.input}
             multiline
@@ -12,7 +13,7 @@ function MyFunctionComponent_Task22(props) {
             numberOfLines={5}
             onChangeText={props.changeContent}
             placeholder='Type here to change page content!'/>
-
+            
         </View>
     );
 }
