@@ -1,7 +1,7 @@
 import React, { useState, useRef } from 'react';
 import { View, StyleSheet, FlatList, Alert, Image, Pressable, Button, TextInput } from 'react-native';
 
-function Task30() {
+function Task30_31() {
     const data = [
         require("../Resources/Algeria.png"),
         require("../Resources/Egypt.png"),
@@ -17,7 +17,7 @@ function Task30() {
 
     const listRef = useRef(null);
     const [inputText, setInput] = useState("");
-    const [images, toggleImageDisplay] = useState(data)
+    const [images, toggleImageDisplay] = useState(data);
 
     const scrollList = () => {
         let ind = parseInt(inputText);
@@ -39,6 +39,12 @@ function Task30() {
         toggleImageDisplay(filteredImages);
     }
 
+    const addImage = (item, index) => {
+        const modifiedImages = [...images];
+        modifiedImages.splice(index+1, 0, item);
+        toggleImageDisplay(modifiedImages);
+    } 
+
     return (
         <View style={styles.container}>
 
@@ -57,6 +63,10 @@ function Task30() {
 
                     <Pressable style={styles.removeIconContainer} onPress={() => removeImage(index)}>
                         <Image style={styles.removeIcon} source={require("../Resources/red-x-icon.png")} />
+                    </Pressable>
+
+                    <Pressable style={styles.addIconContainer} onPress={() => addImage(item, index)}>
+                        <Image style={styles.addIcon} source={require("../Resources/green-plus-icon.png")} />
                     </Pressable>
                 </View>
             )} />
@@ -89,6 +99,11 @@ const styles = StyleSheet.create({
         top: 69,
         right: 8,
     },
+    addIconContainer: {
+        position: "absolute",
+        top: 69,
+        left: 2,
+    },
     image: {
         width: 170,
         height: 100,
@@ -99,6 +114,11 @@ const styles = StyleSheet.create({
         width: 30,
         height: 30,
     },
+    addIcon: {
+        width: 30,
+        height: 30,
+        borderRadius: 15,
+    },
     input: {
         borderWidth: 2,
         marginTop: 10,
@@ -106,4 +126,4 @@ const styles = StyleSheet.create({
     }
 });
 
-export default Task30
+export default Task30_31
