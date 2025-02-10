@@ -1,5 +1,5 @@
 import React from 'react';
-import Task34 from "./Tasks/Task 34";
+import Task35 from "./Tasks/Task 35";
 
 export default function App() {
   return (
@@ -19,6 +19,7 @@ export default function App() {
     //<Task30_31></Task30_31>
     //<Task32></Task32>
     //<Task33></Task33>
-    <Task34></Task34>
+    //<Task34></Task34>
+    <Task35></Task35>
   );
 }
