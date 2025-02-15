@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { View, StyleSheet } from "react-native";
-import Component2 from "../Components/Component2_task39";
+import Component2 from "../Components/Component2_task38";
 import { textContext } from "../Components/textContext";
 
 function Task38() {
